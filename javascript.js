@@ -1,46 +1,85 @@
 
 //Möglichkeiten zur Auswahl in Array
 
-const textArray = ["rock", "paper","scissors"];
+const options = ["rock", "paper","scissors"];
 
 //Funktion für die Wahl des Computers
 
 function getComputerChoice () {
-   return textArray[Math.floor(Math.random() * textArray.length) ];
+   const choice = options[Math.floor(Math.random() * options.length)];
+   return choice;
 }
 
-//Eingabe Fenster für die Wahl des Spielers, toLowerCase() macht alles klein
+//Funktion für die Wahl des Spielers, wenn Input nicht korrekt wird erneut gefragt
 
-let playerSelection = prompt("Please select rock, paper, or scissors", "").toLowerCase();
-const computerSelection = getComputerChoice();
-
-function play (playerSelection, computerSelection) {
-
-
-
-    if (playerSelection === computerSelection) {
-        return "It's a tie!";
-    } else if (playerSelection === "rock" && computerSelection === "scissors") {
-        return "You Win! Rock beats Scissors!";
-    } else if (playerSelection === "scissors" && computerSelection === "paper") {
-        return "You Win! Scissors beats Paper!";
-    } else if (playerSelection === "paper" && computerSelection ==="rock") {
-        return "You Win! Paper beats Rock!";
-    } else if (playerSelection === "rock" && computerSelection ==="paper") {
-        return "You Lose! Paper beats Rock!";
-    } else if (playerSelection === "paper" && computerSelection ==="scissors") {
-        return " You Lose! Scissors beats Paper!";
-    } else if (playerSelection === "scissors" && computerSelection ==="rock") {
-        return "You Lose! Rock beats Scissors!";
+ function getPlayerChoice (){
+    let validatedInput = false;
+    while(validatedInput == false) {
+        const choice = prompt("Choose Rock, Paper or Scissors!", "");
+        if(choice == null) {
+            continue;
+        }
+        const choiceInLower = choice.toLowerCase();
+        if(options.includes(choiceInLower)) {
+            validatedInput = true;
+            return choiceInLower;
+        }
     }
 }
 
-console.log(play(playerSelection, computerSelection));
+    
+    
 
-//Rock Scissors -> You Win! Rock beats Scissors!
-// Scissors Paper ->You Win! Scissors beats Paper!
-//Paper Rock ->You Win! Paper beats Rock!
+//Funktion um festzustellen, wer der Gewinner ist
 
-//Rock Paper -> You Lose! Paper beats Rock!
-//Paper Scissors -> You Lose! Scissors beats Paper!
-//scissors Rock -> You Lose! Rock beats Scissors!
+function checkWinner (playerSelection, computerSelection) {
+    if (playerSelection == computerSelection) {
+        return "Tie";
+    } else if (
+        (playerSelection == "rock" && computerSelection == "scissors")  ||
+        (playerSelection == "paper" && computerSelection == "rock") ||
+        (playerSelection == "scissors" && computerSelection == "paper") ){
+    return "Player";
+    } else {
+        return "Computer";
+    }   
+}
+
+function playRound (playerSelection, computerSelection) {
+    const result = checkWinner(playerSelection, computerSelection);
+    if(result == "Tie") {
+        return "It's a tie";
+    } else if (result == "Player") {
+        return `You Win! ${playerSelection} beats ${computerSelection}`
+    } else {
+        return `You loose! ${computerSelection} beats ${playerSelection}`;
+    }
+}
+
+function game () {
+    let scorePlayer = 0;
+    let scoreComputer = 0;
+    console.log("Welcome!")
+    for (let i = 0; i < 5; i++){
+        const playerSelection = getPlayerChoice();
+        const computerSelection = getComputerChoice();
+        console.log(playRound(playerSelection, computerSelection));
+        if(checkWinner (playerSelection, computerSelection) == "Player") {
+            scorePlayer++;
+        } else if (checkWinner(playerSelection, computerSelection) == "Computer") {
+            scoreComputer++;
+        }
+
+    }
+   
+    if (scorePlayer > scoreComputer) {
+        console.log ("Congratulations, You Won!");
+    } else if (scorePlayer < scoreComputer){
+        console.log("You Lost:/");
+    } else {
+        console.log("It's a tie, no one is the Winner!");
+    }
+    
+}
+
+game()
