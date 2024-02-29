@@ -21,7 +21,7 @@ const rockButton = document.querySelector('#rockButton');
 const paperButton = document.querySelector('#paperButton');
 const scissorsButton = document.querySelector('#scissorsButton');
 
-
+// Klick Events der Buttons
 rockButton.addEventListener('click', () => {
     playerSelection = "rock";
     /*
@@ -30,9 +30,9 @@ rockButton.addEventListener('click', () => {
     buttonsToRemove1.remove();
     buttonsToRemove2.remove();
     */
-    let computerSelection = document.createElement('li');
-    computerSelection.innerHTML = "Computer Selection: " + getComputerChoice();
-    let container = document.getElementById("List");
+    let computerSelection = document.createElement('h2');
+    computerSelection.innerHTML = getComputerChoice();
+    let container = document.getElementById("rightBox");
     container.appendChild(computerSelection);
     
 });

@@ -1,13 +1,21 @@
 * {
     align-content: center;
-    background-color: #d7f0f6;
+    background-color: rgb(255, 255, 255);
 }
 
-h1, h2 {
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+h1 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-align: center;
     margin-top: 50px;
     font-size: 70px;
+    color: #000000cd;
+}
+
+h2 { 
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 50px;
+    align-self: center;
+    color: #000000cd;
 }
 
 button {
@@ -25,7 +33,6 @@ button {
 }
 
 #rockButton {
-    margin-top: 100px;
     background-color: #023E8A;   
 }
 
@@ -54,7 +61,23 @@ button {
     transform: scale(1.1);    
 }
 
-ul {
-    list-style: none;
-    text-align: center;
+#leftBox, #rightBox {
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    margin: 20px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  ;
+  
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
 }
