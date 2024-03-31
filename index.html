@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,28 +8,42 @@
     <title>Document</title>
     <script src="javascript.js" defer></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@100..900&display=swap" rel="stylesheet">
+
+
 
 </head>
 
-<h1>Rock Paper Scissors</h1>
+
 
 <body>
-    <main>
-    <div id="leftBox">
-            <h2>You</h2>
-            <button id="rockButton" >Rock</button>
-            <button id="paperButton">Paper</button>
-            <button id="scissorsButton">Scissors</button>
-    </div>
-    <div id="rightBox">
-        <h2 id="ComputersChoiceOutput">Computer</h2>
-    </div>
-   <div class ="outcome">
+    <div id="overlay">  </div>
+    <h1>Rock Paper Scissors</h1>
 
-   </div>
-    </main> 
-  
-   
+    <div id="popup" class="popup">
+            <h2 id="outcome">Test</h2>
+            <button id="restart">Restart</button>
+     </div>
+        <main>
     
+            <div id="leftBox">
+
+                <h2 id="playerScore">You 0</h2>
+                <button id="rockButton">Rock</button>
+                <button id="paperButton">Paper</button>
+                <button id="scissorsButton">Scissors</button>
+            </div>
+             <div id="rightBox">
+                <h2 id="computerScore">Computer 0</h2>
+            </div>
+           
+        </main>
+  
+
+
+
 </body>
+
 </html>
